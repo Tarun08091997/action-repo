@@ -4,19 +4,19 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-# Replace with your MongoDB Atlas connection string
+# Connect to MongoDB (Compass or Atlas)
 client = MongoClient("mongodb://localhost:27017")
 
-# Use database and collection
 db = client["github_events"]
 collection = db["events"]
 
 @app.route('/')
 def home():
-    return "Webhook Server is Running!"
+    return "Webhook Server is Runnnnnnning!"
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
+
     event_type = request.headers.get('X-GitHub-Event')
     data = request.json
 
